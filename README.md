@@ -20,7 +20,7 @@ N/A
 ## 🛠️ Technologies
 
 - **Framework**: Astro
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS, DaisyUI(Component Library for Tailwind CSS)
 - **Interactive Components**: Vue/React/Angular
 - **Hosting**: [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/)
 
