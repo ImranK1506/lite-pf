@@ -21,6 +21,7 @@ N/A
 
 - **Framework**: Astro
 - **Styling**: Tailwind CSS, DaisyUI(Component Library for Tailwind CSS)
+- **Icons**: React Icons
 - **Interactive Components**: Vue/React/Angular
 - **Hosting**: [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/)
 
