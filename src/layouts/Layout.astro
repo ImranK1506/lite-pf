@@ -1,16 +1,29 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="en" data-theme="">
+<html lang="en" data-theme="forest">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<!--<title>{title}</title>-->
+		<title>Imran Khan | Software Engineer</title>
 	</head>
-	<slot/>
+	<body>
+		<div class="grid grid-rows-[10%_60%_30%] min-h-screen">
+			<slot name="navbar" />
+
+			<main class="bg-base-200">
+				<slot />
+			</main>
+
+			<footer class="h-full">
+				<slot name="footer" />
+			</footer>
+		</div>
+	</body>
 </html>
