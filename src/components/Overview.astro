@@ -6,12 +6,21 @@
 // }
 ---
 
-<!--<main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-base-200 p-4 place-items-center">-->
 <main class="flex-1 flex items-center justify-center p-4">
-	<!--{projects.map((project) => (-->
-	<div class="card bg-base-100 shadow-md p-6 rounded-lg max-w-2xl w-full">
-			<h2 class="text-xl font-bold text-center">Welcome to my Front End Portfolio</h2>
-			<p class="mt-2 text-center">Here is an overview of my latest work</p>
+	<div class="card bg-base-100 shadow-md p-6 rounded-lg max-w-4xl w-full flex flex-col md:flex-row items-center gap-6">
+		<!-- Text Section -->
+		<div class="flex-1 text-center md:text-left">
+			<h2 class="text-xl font-bold">Welcome to my Front End Portfolio</h2>
+			<p class="mt-2">Here is an overview of my latest work</p>
 		</div>
-	<!--))}-->
+
+		<!-- Mock Browser Section -->
+		<div class="mockup-browser bg-base-300 border flex-1 max-w-lg w-full">
+			<div class="mockup-browser-toolbar">
+				<div class="input">https://daisyui.com</div>
+			</div>
+			<div class="bg-base-200 flex justify-center px-4 py-16">Hello!</div>
+		</div>
+	</div>
 </main>
+
