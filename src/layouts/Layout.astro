@@ -15,10 +15,12 @@ import Overview from '../components/Overview.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>Imran Khan | Software Engineer</title>
 	</head>
-	<body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
+	<body class="min-h-screen flex flex-col">
 		<Navbar />
 
-		<Overview />
+		<main class="flex-grow">
+			<Overview />
+		</main>
 
 		<Footer />
 	</body>
