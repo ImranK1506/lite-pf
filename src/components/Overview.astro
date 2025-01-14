@@ -6,7 +6,7 @@
 // }
 ---
 
-<main class="flex-grow flex items-center justify-center p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white"><main class="flex-grow flex items-center justify-center p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+<main class="flex-grow flex items-center justify-center p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
 	<div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
 		<!-- Text Section -->
 		<div class="flex-1 space-y-6 text-center md:text-left">
@@ -17,73 +17,89 @@
 				Discover my latest projects, skills, and contributions as a Software Engineer.
 			</p>
 			<div class="space-y-4">
-				<div class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg">
+				<div
+					class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg cursor-pointer"
+					data-url="https://portfolio.com/projects"
+					data-title="Featured Projects"
+					data-description="Showcasing some of my most innovative and impactful projects across various technologies."
+				>
 					<h2 class="text-lg sm:text-xl font-semibold">Featured Projects</h2>
 					<p class="opacity-80">
 						Showcasing some of my most innovative and impactful projects across various technologies.
 					</p>
 				</div>
-				<div class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg">
+				<div
+					class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg cursor-pointer"
+					data-url="https://portfolio.com/skills"
+					data-title="Skills and Expertise"
+					data-description="A comprehensive overview of my technical stack, including front-end and back-end technologies."
+				>
 					<h2 class="text-lg sm:text-xl font-semibold">Skills and Expertise</h2>
 					<p class="opacity-80">
 						A comprehensive overview of my technical stack, including front-end and back-end technologies.
 					</p>
 				</div>
-				<div class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg">
+				<div
+					class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg cursor-pointer"
+					data-url="https://portfolio.com/contributions"
+					data-title="Open Source Contributions"
+					data-description="Details about my contributions to open-source projects and how they make an impact."
+				>
 					<h2 class="text-lg sm:text-xl font-semibold">Open Source Contributions</h2>
 					<p class="opacity-80">
 						Details about my contributions to open-source projects and how they make an impact.
 					</p>
 				</div>
-				<div class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg">
+				<div
+					class="bg-white bg-opacity-10 p-4 rounded-md transition transform hover:bg-opacity-20 hover:scale-105 hover:shadow-lg cursor-pointer"
+					data-url="https://portfolio.com/testimonials"
+					data-title="Testimonials"
+					data-description="Read feedback and recommendations from colleagues, clients, and collaborators."
+				>
 					<h2 class="text-lg sm:text-xl font-semibold">Testimonials</h2>
 					<p class="opacity-80">
 						Read feedback and recommendations from colleagues, clients, and collaborators.
 					</p>
 				</div>
 			</div>
-
 		</div>
 
 		<!-- Mock Browser Section -->
 		<div class="flex-1 flex justify-center">
-			<div class="mockup-browser bg-gray-800 shadow-2xl rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
-				<div class="mockup-browser-toolbar bg-gray-700 text-white px-4 py-2 rounded-t-lg">
-					<div class="input text-gray-300">portfolio.com</div>
+			<div
+				id="mock-browser"
+				class="mockup-browser bg-gray-800 shadow-2xl rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
+			>
+				<div id="mock-toolbar" class="mockup-browser-toolbar bg-gray-700 text-white px-4 py-2 rounded-t-lg">
+					<div id="mock-url" class="input text-gray-300">portfolio.com</div>
 				</div>
-				<div class="bg-gray-900 p-6 text-white h-full">
-					<table class="w-full text-left text-sm text-gray-200">
-						<thead class="text-gray-400 border-b border-gray-700">
-						<tr>
-							<th class="py-2">Project</th>
-							<th class="py-2">Technologies</th>
-							<th class="py-2">Role</th>
-							<th class="py-2">Year</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr class="border-b border-gray-700">
-							<td class="py-2">Portfolio Website</td>
-							<td>Astro, TailwindCSS</td>
-							<td>Developer</td>
-							<td>2025</td>
-						</tr>
-						<tr class="border-b border-gray-700">
-							<td class="py-2">E-commerce Platform</td>
-							<td>React, Node.js</td>
-							<td>Full Stack Developer</td>
-							<td>2024</td>
-						</tr>
-						<tr>
-							<td class="py-2">Open Source Library</td>
-							<td>TypeScript</td>
-							<td>Contributor</td>
-							<td>2023</td>
-						</tr>
-						</tbody>
-					</table>
+				<div id="mock-content" class="bg-gray-900 p-6 text-white h-full">
+					<h3 class="text-xl font-semibold">Welcome to my portfolio!</h3>
+					<p class="mt-2 opacity-80">Click a section to see details here.</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </main>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const cards = document.querySelectorAll(".space-y-4 > div");
+		const mockUrl = document.getElementById("mock-url");
+		const mockContent = document.getElementById("mock-content");
+
+		cards.forEach((card) => {
+			card.addEventListener("click", () => {
+				const url = card.getAttribute("data-url");
+				const title = card.getAttribute("data-title");
+				const description = card.getAttribute("data-description");
+
+				mockUrl.textContent = url;
+				mockContent.innerHTML = `
+          <h3 class="text-xl font-semibold">${title}</h3>
+          <p class="mt-2 opacity-80">${description}</p>
+        `;
+			});
+		});
+	});
+</script>
