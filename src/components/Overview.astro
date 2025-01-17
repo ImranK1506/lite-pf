@@ -1,20 +1,21 @@
 ---
 import Projects from "../components/Projects.astro";
 
-let mockBrowserData = {
-	url: "http://portfolio.com",
+// Define the initial state for the mock browser
+const initialMockBrowser = {
 	title: "Welcome to my portfolio!",
+	url: "http://portfolio.com",
 	description: "Click a section to see details here.",
 };
 
-function updateMockBrowser(project) {
-	mockBrowserData = {
-		url: project.url,
-		title: project.title,
-		description: project.description,
-	};
+// State to manage the current mock browser content
+let currentMockBrowser = initialMockBrowser;
 
-	// Update DOM elements dynamically
+// Function to update the mock browser content
+function handleProjectClick(project: any) {
+	currentMockBrowser = project; // Update the current state
+	console.log('1')
+	// Update the DOM dynamically
 	const mockUrl = document.getElementById("mock-url");
 	const mockContent = document.getElementById("mock-content");
 
@@ -38,7 +39,7 @@ function updateMockBrowser(project) {
 			<p class="text-lg sm:text-xl opacity-80">
 				Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions that shape the future of technology.
 			</p>
-			<Projects onProjectClick={updateMockBrowser} />
+			<Projects onProjectClick={handleProjectClick} />
 		</div>
 
 		<!-- Mock Browser Section -->
@@ -48,27 +49,13 @@ function updateMockBrowser(project) {
 				class="mockup-browser bg-gray-800 shadow-2xl rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
 			>
 				<div id="mock-toolbar" class="mockup-browser-toolbar bg-gray-700 text-white px-4 py-2 rounded-t-lg">
-					<div id="mock-url" class="input text-gray-300">{mockBrowserData.url}</div>
+					<div id="mock-url" class="input text-gray-300">{currentMockBrowser.url}</div>
 				</div>
-				<!-- Mock browser content -->
 				<div id="mock-content" class="bg-gray-900 p-6 text-white h-full">
-					<h3 class="text-xl font-semibold">{mockBrowserData.title}</h3>
-					<p class="mt-2 opacity-80">{mockBrowserData.description}</p>
+					<h3 class="text-xl font-semibold">{currentMockBrowser.title}</h3>
+					<p class="mt-2 opacity-80">{currentMockBrowser.description}</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </main>
-
-<!--<script>-->
-<!--	function updateMockBrowser(project) {-->
-<!--		const mockUrl = document.getElementById("mock-url");-->
-<!--		const mockTitle = document.getElementById("mock-title");-->
-<!--		const mockDescription = document.getElementById("mock-description");-->
-
-<!--		// Update mock browser content-->
-<!--		mockUrl.textContent = project.url;-->
-<!--		mockTitle.textContent = project.title;-->
-<!--		mockDescription.textContent = project.description;-->
-<!--	}-->
-<!--</script>-->
