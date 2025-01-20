@@ -1,5 +1,5 @@
 ---
-import Projects from "../components/Projects.astro";
+import Projects from "./Projects.astro";
 
 // Define the initial state for the mock browser
 const initialMockBrowser = {
@@ -12,20 +12,9 @@ const initialMockBrowser = {
 let currentMockBrowser = initialMockBrowser;
 
 // Function to update the mock browser content
-function handleProjectClick(project: any) {
-	currentMockBrowser = project; // Update the current state
-	console.log('1')
-	// Update the DOM dynamically
-	const mockUrl = document.getElementById("mock-url");
-	const mockContent = document.getElementById("mock-content");
-
-	if (mockUrl && mockContent) {
-		mockUrl.textContent = project.url;
-		mockContent.innerHTML = `
-      <h3 class="text-xl font-semibold">${project.title}</h3>
-      <p class="mt-2 opacity-80">${project.description}</p>
-    `;
-	}
+function handleProjectClick(project) {
+	// Update the `currentMockBrowser` state
+	currentMockBrowser = project;
 }
 ---
 
@@ -39,7 +28,29 @@ function handleProjectClick(project: any) {
 			<p class="text-lg sm:text-xl opacity-80">
 				Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions that shape the future of technology.
 			</p>
-			<Projects onProjectClick={handleProjectClick} />
+			<!-- Pass projects and click handler -->
+			<Projects projects={[
+				{
+					title: "Featured Projects",
+					url: "http://portfolio.com/projects",
+					description: "Showcasing some of my most innovative and impactful projects across various technologies.",
+				},
+				{
+					title: "Skills and Expertise",
+					url: "http://portfolio.com/skills",
+					description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
+				},
+				{
+					title: "Open Source Contributions",
+					url: "http://portfolio.com/contributions",
+					description: "Details about my contributions to open-source projects and how they make an impact.",
+				},
+				{
+					title: "Testimonials",
+					url: "http://portfolio.com/testimonials",
+					description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
+				},
+			]} onProjectClick={handleProjectClick} />
 		</div>
 
 		<!-- Mock Browser Section -->

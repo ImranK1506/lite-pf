@@ -10,35 +10,15 @@ export interface Props {
   onProjectClick: (project: Project) => void;
 }
 
-export const projects = [
-  {
-    title: "Featured Projects",
-    url: "http://portfolio.com/projects",
-    description: "Showcasing some of my most innovative and impactful projects across various technologies.",
-  },
-  {
-    title: "Skills and Expertise",
-    url: "http://portfolio.com/skills",
-    description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
-  },
-  {
-    title: "Open Source Contributions",
-    url: "http://portfolio.com/contributions",
-    description: "Details about my contributions to open-source projects and how they make an impact.",
-  },
-  {
-    title: "Testimonials",
-    url: "http://portfolio.com/testimonials",
-    description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
-  },
-];
+// Destructure props passed from the parent component
+const { projects, onProjectClick } = Astro.props;
 ---
 
 <div class="space-y-6">
-  {projects.map((project, index) => (
+  {projects.map((project) => (
     <div
       class="bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl cursor-pointer border border-gray-700 hover:border-pink-500 group"
-      data-index={index}
+      onClick={() => onProjectClick(project)}
     >
       <h2 class="text-xl sm:text-2xl font-bold text-gray-100 transition-all">
         {project.title}
@@ -49,14 +29,3 @@ export const projects = [
     </div>
   ))}
 </div>
-
-<script>
-  // Add click listeners for all project cards
-  document.querySelectorAll('[data-index]').forEach((card) => {
-    card.addEventListener('click', (event) => {
-      const index = card.getAttribute('data-index');
-      const project = Astro.props.projects[index]; // Access the project data
-      Astro.props.onProjectClick(project); // Call the parent handler
-    });
-  });
-</script>
