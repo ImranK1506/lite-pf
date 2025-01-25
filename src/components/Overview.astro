@@ -1,25 +1,34 @@
 ---
 import Projects from "./Projects.astro";
 
-// Define the initial state for the mock browser
+// Initial state for the mock browser
 const initialMockBrowser = {
 	title: "Welcome to my portfolio!",
 	url: "http://portfolio.com",
 	description: "Click a section to see details here.",
 };
 
-// State to manage the current mock browser content
 let currentMockBrowser = initialMockBrowser;
 
-// Function to update the mock browser content
+// Function to handle clicks from Projects
 function handleProjectClick(project) {
-	// Update the `currentMockBrowser` state
 	currentMockBrowser = project;
-	console.log('Project clicked:', project);
+
+	// Update DOM elements directly
+	const mockUrl = document.getElementById("mock-url");
+	const mockContent = document.getElementById("mock-content");
+
+	if (mockUrl && mockContent) {
+		mockUrl.textContent = project.url;
+		mockContent.innerHTML = `
+      <h3 class="text-xl font-semibold">${project.title}</h3>
+      <p class="mt-2 opacity-80">${project.description}</p>
+    `;
+	}
 }
 ---
 
-<main class="flex-grow flex items-center justify-center p-6 bg-gradient-to-r text-gray-500">
+<main class="flex-grow flex items-center justify-center p-6 bg-gradient-to-r text-gray-100">
 	<div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
 		<!-- Text Section -->
 		<div class="flex-1 space-y-6 text-center md:text-left">
@@ -30,28 +39,31 @@ function handleProjectClick(project) {
 				Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions that shape the future of technology.
 			</p>
 			<!-- Pass projects and click handler -->
-			<Projects projects={[
-				{
-					title: "Featured Projects",
-					url: "http://portfolio.com/projects",
-					description: "Showcasing some of my most innovative and impactful projects across various technologies.",
-				},
-				{
-					title: "Skills and Expertise",
-					url: "http://portfolio.com/skills",
-					description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
-				},
-				{
-					title: "Open Source Contributions",
-					url: "http://portfolio.com/contributions",
-					description: "Details about my contributions to open-source projects and how they make an impact.",
-				},
-				{
-					title: "Testimonials",
-					url: "http://portfolio.com/testimonials",
-					description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
-				},
-			]} onProjectClick={handleProjectClick} />
+			<Projects
+				projects={[
+					{
+						title: "Featured Projects",
+						url: "http://portfolio.com/projects",
+						description: "Showcasing some of my most innovative and impactful projects across various technologies.",
+					},
+					{
+						title: "Skills and Expertise",
+						url: "http://portfolio.com/skills",
+						description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
+					},
+					{
+						title: "Open Source Contributions",
+						url: "http://portfolio.com/contributions",
+						description: "Details about my contributions to open-source projects and how they make an impact.",
+					},
+					{
+						title: "Testimonials",
+						url: "http://portfolio.com/testimonials",
+						description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
+					},
+				]}
+				onProjectClick={handleProjectClick}
+			/>
 		</div>
 
 		<!-- Mock Browser Section -->
