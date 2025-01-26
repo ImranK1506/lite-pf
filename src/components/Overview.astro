@@ -1,31 +1,32 @@
 ---
-import Projects from "./Projects.astro";
+const projects = [
+	{
+		title: "Featured Projects",
+		url: "http://portfolio.com/projects",
+		description: "Showcasing some of my most innovative and impactful projects across various technologies.",
+	},
+	{
+		title: "Skills and Expertise",
+		url: "http://portfolio.com/skills",
+		description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
+	},
+	{
+		title: "Open Source Contributions",
+		url: "http://portfolio.com/contributions",
+		description: "Details about my contributions to open-source projects and how they make an impact.",
+	},
+	{
+		title: "Testimonials",
+		url: "http://portfolio.com/testimonials",
+		description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
+	},
+];
 
-// Initial state for the mock browser
 const initialMockBrowser = {
 	title: "Welcome to my portfolio!",
 	url: "http://portfolio.com",
 	description: "Click a section to see details here.",
 };
-
-let currentMockBrowser = initialMockBrowser;
-
-// Function to handle clicks from Projects
-function handleProjectClick(project) {
-	currentMockBrowser = project;
-
-	// Update DOM elements directly
-	const mockUrl = document.getElementById("mock-url");
-	const mockContent = document.getElementById("mock-content");
-
-	if (mockUrl && mockContent) {
-		mockUrl.textContent = project.url;
-		mockContent.innerHTML = `
-      <h3 class="text-xl font-semibold">${project.title}</h3>
-      <p class="mt-2 opacity-80">${project.description}</p>
-    `;
-	}
-}
 ---
 
 <main class="flex-grow flex items-center justify-center p-6 bg-gradient-to-r text-gray-100">
@@ -38,32 +39,24 @@ function handleProjectClick(project) {
 			<p class="text-lg sm:text-xl opacity-80">
 				Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions that shape the future of technology.
 			</p>
-			<!-- Pass projects and click handler -->
-			<Projects
-				projects={[
-					{
-						title: "Featured Projects",
-						url: "http://portfolio.com/projects",
-						description: "Showcasing some of my most innovative and impactful projects across various technologies.",
-					},
-					{
-						title: "Skills and Expertise",
-						url: "http://portfolio.com/skills",
-						description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
-					},
-					{
-						title: "Open Source Contributions",
-						url: "http://portfolio.com/contributions",
-						description: "Details about my contributions to open-source projects and how they make an impact.",
-					},
-					{
-						title: "Testimonials",
-						url: "http://portfolio.com/testimonials",
-						description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
-					},
-				]}
-				onProjectClick={handleProjectClick}
-			/>
+			<div class="space-y-6">
+				{projects.map((project, index) => (
+					<div
+						class="bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl cursor-pointer border border-gray-700 hover:border-pink-500 group project-card"
+						data-title={project.title}
+						data-url={project.url}
+						data-description={project.description}
+						data-index={index}
+					>
+						<h2 class="text-xl sm:text-2xl font-bold text-gray-100 transition-all">
+							{project.title}
+						</h2>
+						<p class="mt-2 text-sm sm:text-base text-gray-400 group-hover:text-gray-200">
+							{project.description}
+						</p>
+					</div>
+				))}
+			</div>
 		</div>
 
 		<!-- Mock Browser Section -->
@@ -73,13 +66,42 @@ function handleProjectClick(project) {
 				class="mockup-browser bg-gray-800 shadow-2xl rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
 			>
 				<div id="mock-toolbar" class="mockup-browser-toolbar bg-gray-700 text-white px-4 py-2 rounded-t-lg">
-					<div id="mock-url" class="input text-gray-300">{currentMockBrowser.url}</div>
+					<div id="mock-url" class="input text-gray-300">{initialMockBrowser.url}</div>
 				</div>
 				<div id="mock-content" class="bg-white p-6 text-black h-full">
-					<h3 class="text-xl font-semibold">{currentMockBrowser.title}</h3>
-					<p class="mt-2 opacity-80">{currentMockBrowser.description}</p>
+					<h3 class="text-xl font-semibold">{initialMockBrowser.title}</h3>
+					<p class="mt-2 opacity-80">{initialMockBrowser.description}</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </main>
+
+<script>
+	// Wait until the DOM is loaded
+	document.addEventListener("DOMContentLoaded", () => {
+		// Add event listeners to all project cards
+		const projectCards = document.querySelectorAll(".project-card");
+
+		projectCards.forEach((card) => {
+			card.addEventListener("click", () => {
+				// Get project data from the card's data attributes
+				const title = card.getAttribute("data-title");
+				const url = card.getAttribute("data-url");
+				const description = card.getAttribute("data-description");
+
+				// Update the mock browser content
+				const mockUrl = document.getElementById("mock-url");
+				const mockContent = document.getElementById("mock-content");
+
+				if (mockUrl && mockContent) {
+					mockUrl.textContent = url;
+					mockContent.innerHTML = `
+            <h3 class="text-xl font-semibold">${title}</h3>
+            <p class="mt-2 opacity-80">${description}</p>
+          `;
+				}
+			});
+		});
+	});
+</script>
