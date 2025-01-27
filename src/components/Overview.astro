@@ -4,21 +4,25 @@ const projects = [
 		title: "Featured Projects",
 		url: "http://portfolio.com/projects",
 		description: "Showcasing some of my most innovative and impactful projects across various technologies.",
+		badges: ["Featured", "Innovation"],
 	},
 	{
 		title: "Skills and Expertise",
 		url: "http://portfolio.com/skills",
 		description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
+		badges: ["Technical", "Expertise"],
 	},
 	{
 		title: "Open Source Contributions",
 		url: "http://portfolio.com/contributions",
 		description: "Details about my contributions to open-source projects and how they make an impact.",
+		badges: ["Open Source", "Impact"],
 	},
 	{
 		title: "Testimonials",
 		url: "http://portfolio.com/testimonials",
 		description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
+		badges: ["Feedback", "Trust"],
 	},
 ];
 
@@ -39,21 +43,34 @@ const initialMockBrowser = {
 			<p class="text-lg sm:text-xl opacity-80">
 				Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions that shape the future of technology.
 			</p>
+
+			<!-- Project Cards -->
 			<div class="space-y-6">
 				{projects.map((project, index) => (
 					<div
-						class="bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl cursor-pointer border border-gray-700 hover:border-pink-500 group project-card"
+						class="card bg-gradient-to-r from-gray-800 via-gray-900 to-black shadow-xl border border-gray-700 hover:border-pink-500 group cursor-pointer transform transition-all hover:scale-105"
 						data-title={project.title}
 						data-url={project.url}
 						data-description={project.description}
-						data-index={index}
 					>
-						<h2 class="text-xl sm:text-2xl font-bold text-gray-100 transition-all">
-							{project.title}
-						</h2>
-						<p class="mt-2 text-sm sm:text-base text-gray-400 group-hover:text-gray-200">
-							{project.description}
-						</p>
+						<div class="card-body p-6">
+							<!-- Title and Responsive Badges -->
+							<div class="flex justify-between items-center">
+								<h2 class="card-title text-gray-100">{project.title}</h2>
+								<div class="flex flex-wrap gap-2">
+									{project.badges.map((badge) => (
+										<div class="badge badge-secondary text-xs sm:text-sm md:text-base lg:text-lg">
+											{badge}
+										</div>
+									))}
+								</div>
+							</div>
+
+							<!-- Description -->
+							<p class="mt-2 text-sm sm:text-base text-gray-400 group-hover:text-gray-200">
+								{project.description}
+							</p>
+						</div>
 					</div>
 				))}
 			</div>
@@ -63,14 +80,16 @@ const initialMockBrowser = {
 		<div class="flex-1 flex justify-center">
 			<div
 				id="mock-browser"
-				class="mockup-browser bg-gray-800 shadow-2xl rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
+				class="mockup-window border bg-gray-800 shadow-2xl rounded-lg w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
 			>
-				<div id="mock-toolbar" class="mockup-browser-toolbar bg-gray-700 text-white px-4 py-2 rounded-t-lg">
-					<div id="mock-url" class="input text-gray-300">{initialMockBrowser.url}</div>
+				<div class="navbar bg-gray-700 rounded-t-lg px-4 py-2">
+					<div id="mock-url" class="text-white truncate">{initialMockBrowser.url}</div>
 				</div>
 				<div id="mock-content" class="bg-white p-6 text-black h-full">
-					<h3 class="text-xl font-semibold">{initialMockBrowser.title}</h3>
-					<p class="mt-2 opacity-80">{initialMockBrowser.description}</p>
+					<article class="prose lg:prose-xl">
+						<h3>{initialMockBrowser.title}</h3>
+						<p>{initialMockBrowser.description}</p>
+					</article>
 				</div>
 			</div>
 		</div>
@@ -81,7 +100,7 @@ const initialMockBrowser = {
 	// Wait until the DOM is loaded
 	document.addEventListener("DOMContentLoaded", () => {
 		// Add event listeners to all project cards
-		const projectCards = document.querySelectorAll(".project-card");
+		const projectCards = document.querySelectorAll(".card");
 
 		projectCards.forEach((card) => {
 			card.addEventListener("click", () => {
@@ -97,8 +116,10 @@ const initialMockBrowser = {
 				if (mockUrl && mockContent) {
 					mockUrl.textContent = url;
 					mockContent.innerHTML = `
-            <h3 class="text-xl font-semibold">${title}</h3>
-            <p class="mt-2 opacity-80">${description}</p>
+            <article class="prose lg:prose-xl">
+              <h3>${title}</h3>
+              <p>${description}</p>
+            </article>
           `;
 				}
 			});
