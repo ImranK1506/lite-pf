@@ -54,12 +54,12 @@ const initialMockBrowser = {
 						data-description={project.description}
 					>
 						<div class="card-body p-6">
-							<!-- Title and Responsive Badges -->
+							<!-- Title and Badges -->
 							<div class="flex justify-between items-center">
 								<h2 class="card-title text-gray-100">{project.title}</h2>
 								<div class="flex flex-wrap gap-2">
 									{project.badges.map((badge) => (
-										<div class="badge badge-secondary text-xs sm:text-sm md:text-base lg:text-lg">
+										<div class="badge badge-secondary text-xs sm:text-sm md:text-base lg:text-lg flex items-center gap-1">
 											{badge}
 										</div>
 									))}
@@ -76,16 +76,15 @@ const initialMockBrowser = {
 			</div>
 		</div>
 
-		<!-- Mock Browser Section -->
+		<!-- Mock Browser -->
 		<div class="flex-1 flex justify-center">
-			<div
-				id="mock-browser"
-				class="mockup-window border bg-gray-800 shadow-2xl rounded-lg w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
-			>
-				<div class="navbar bg-gray-700 rounded-t-lg px-4 py-2">
-					<div id="mock-url" class="text-white truncate">{initialMockBrowser.url}</div>
+			<div class="mockup-browser border shadow-xl w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
+				<!-- Toolbar -->
+				<div class="mockup-browser-toolbar">
+					<div id="mock-url" class="input">{initialMockBrowser.url}</div>
 				</div>
-				<div id="mock-content" class="bg-white p-6 text-black h-full">
+				<!-- Content -->
+				<div id="mock-content" class="p-6 h-full">
 					<article class="prose lg:prose-xl">
 						<h3>{initialMockBrowser.title}</h3>
 						<p>{initialMockBrowser.description}</p>
@@ -97,19 +96,15 @@ const initialMockBrowser = {
 </main>
 
 <script>
-	// Wait until the DOM is loaded
 	document.addEventListener("DOMContentLoaded", () => {
-		// Add event listeners to all project cards
 		const projectCards = document.querySelectorAll(".card");
 
 		projectCards.forEach((card) => {
 			card.addEventListener("click", () => {
-				// Get project data from the card's data attributes
 				const title = card.getAttribute("data-title");
 				const url = card.getAttribute("data-url");
 				const description = card.getAttribute("data-description");
 
-				// Update the mock browser content
 				const mockUrl = document.getElementById("mock-url");
 				const mockContent = document.getElementById("mock-content");
 
