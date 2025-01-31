@@ -4,8 +4,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				body: ['Inter', 'sans-serif'],
-				heading: ['Lexend', 'sans-serif'],
+				heading: ['"DM Sans"', 'sans-serif'],
+				body: ['"Fira Sans"', 'sans-serif'],
 			},
 		},
 	},
@@ -13,5 +13,4 @@ export default {
 	daisyui: {
 		themes: ['winter', 'night'],
 		},
-	darkMode:['selector', '[data-theme="night"]'],
 }

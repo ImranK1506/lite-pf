@@ -36,10 +36,10 @@ const initialMockBrowser = {
 <main class="flex-grow flex flex-col items-center justify-center p-6 bg-gradient-to-r">
 		<!-- Text Section -->
 		<div class="text-center mb-8">
-			<h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+			<h1 class="font-heading text-3xl sm:text-4xl md:text-5xl leading-tight mb-4">
 				Explore My Software Engineering Portfolio
 			</h1>
-			<p class="text-lg sm:text-xl opacity-80">
+			<p class="font-body text-lg sm:text-xl opacity-80">
 				Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions that shape the future of technology.
 			</p>
 		</div>
@@ -58,10 +58,10 @@ const initialMockBrowser = {
 						<div class="card-body flex flex-col justify-between p-6 h-full">
 							<!-- Title and Badges -->
 							<div>
-								<h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-100">
+								<h2 class="font-heading text-xl sm:text-2xl lg:text-3xl text-gray-100">
 									{project.title}
 								</h2>
-								<div class="flex flex-wrap gap-2 mt-2">
+								<div class="font-body flex flex-wrap gap-2 mt-2">
 									{project.badges.map((badge) => (
 										<div class="badge badge-secondary text-xs sm:text-sm md:text-base lg:text-lg font-medium">
 											{badge}
@@ -92,8 +92,8 @@ const initialMockBrowser = {
 				<!-- Content -->
 				<div id="mock-content" class="flex justify-center px-4 py-16 p-6 h-full bg-gray-800">
 					<article class="prose lg:prose-xl">
-						<h3>{initialMockBrowser.title}</h3>
-						<p>{initialMockBrowser.description}</p>
+						<h3 class="font-body">{initialMockBrowser.title}</h3>
+						<p class="font-body">{initialMockBrowser.description}</p>
 					</article>
 				</div>
 			</div>
