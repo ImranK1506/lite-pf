@@ -2,23 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* General button styling */
 .btn {
-  @apply py-2 px-4 rounded;
+  @apply py-2 px-4 rounded font-body font-medium transition-all;
 }
+
+/* Grid system improvements */
 .grid {
   display: grid;
   gap: 1.5rem; /* Spacing between cards */
+  padding: 1rem; /* Extra padding for spacing on small screens */
 }
 
+/* Project card design */
 .card {
-  height: 100%; /* Ensure all cards stretch to the same height */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 1.5rem;
+  border-radius: 0.5rem; /* Smooth rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Project card hover effects */
 .card:hover {
-  transform: scale(1.05); /* Slight scaling effect on hover */
-  box-shadow: 0px 4px 15px rgba(255, 20, 147, 0.3); /* Subtle shadow */
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3); /* More refined shadow */
 }
+
+/* Hover overlay styling for the "View Project" button */
+.card .overlay {
+  @apply absolute inset-0 flex items-center justify-center bg-black/70 opacity-0 transition-opacity rounded-lg;
+}
+
+.group:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Button inside the overlay */
+.overlay .btn {
+  @apply bg-pink-500 text-white hover:bg-pink-600;
+}
+
+#mock-content {
+  transition: opacity 0.3s ease-in-out;
+}
+
