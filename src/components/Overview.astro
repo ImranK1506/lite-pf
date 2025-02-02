@@ -1,30 +1,31 @@
 ---
 const projects = [
 	{
-		title: "Featured Projects",
-		url: "http://portfolio.com/projects",
-		description: "Showcasing some of my most innovative and impactful projects across various technologies.",
-		badges: ["Featured", "Innovation"],
+		title: "React Project",
+		url: "http://portfolio.com/react",
+		description: "A dynamic web application built with React and Tailwind.",
+		technologies: ["react", "tailwind"],
 	},
 	{
-		title: "Skills and Expertise",
-		url: "http://portfolio.com/skills",
-		description: "A comprehensive overview of my technical stack, including front-end and back-end technologies.",
-		badges: ["Technical", "Expertise"],
+		title: "Angular Dashboard",
+		url: "http://portfolio.com/angular",
+		description: "An interactive admin dashboard using Angular.",
+		technologies: ["angular", "material"],
 	},
 	{
-		title: "Open Source Contributions",
-		url: "http://portfolio.com/contributions",
-		description: "Details about my contributions to open-source projects and how they make an impact.",
-		badges: ["Open Source", "Impact"],
+		title: "Vue App",
+		url: "http://portfolio.com/vue",
+		description: "A single-page application built with Vue.js.",
+		technologies: ["vue", "bootstrap"],
 	},
 	{
-		title: "Testimonials",
-		url: "http://portfolio.com/testimonials",
-		description: "Read feedback and recommendations from colleagues, clients, and collaborators.",
-		badges: ["Feedback", "Trust"],
+		title: "Svelte App",
+		url: "http://portfolio.com/svelte",
+		description: "An application built with Vue.js.",
+		technologies: ["svelte", "bulma"],
 	},
 ];
+
 
 const initialMockBrowser = {
 	title: "Welcome to my portfolio!",
@@ -56,12 +57,12 @@ const initialMockBrowser = {
 					data-url={project.url}
 					data-description={project.description}
 				>
-					<!-- Title and Badges -->
+					<!-- Title and Icons -->
 					<div class="space-y-4">
 						<h2 class="font-heading text-2xl text-gray-100">{project.title}</h2>
 						<div class="flex flex-wrap gap-2">
-							{project.badges.map((badge) => (
-								<div class="badge badge-secondary text-sm">{badge}</div>
+							{project.technologies.map((icon) => (
+								<div class="badge badge-secondary text-sm">{project.technologies}</div>
 							))}
 						</div>
 						<p class="font-body text-gray-400">{project.description}</p>
