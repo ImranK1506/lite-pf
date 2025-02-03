@@ -1,126 +1,116 @@
 ---
+import ProjectCard from "./ProjectCard.astro";
+
 const projects = [
-	{
-		title: "React Project",
-		url: "http://portfolio.com/react",
-		description: "A dynamic web application built with React and Tailwind.",
-		technologies: ["react", " tailwind"],
-	},
-	{
-		title: "Angular Dashboard",
-		url: "http://portfolio.com/angular",
-		description: "An interactive admin dashboard using Angular.",
-		technologies: ["angular", " material"],
-	},
-	{
-		title: "Vue App",
-		url: "http://portfolio.com/vue",
-		description: "A single-page application built with Vue.js.",
-		technologies: ["vue", " bootstrap"],
-	},
-	{
-		title: "Svelte App",
-		url: "http://portfolio.com/svelte",
-		description: "An application built with Vue.js.",
-		technologies: ["svelte", " bulma"],
-	},
+    {
+        title: "React Project",
+        url: "http://portfolio.com/react",
+        description: "A dynamic web application built with React and Tailwind.",
+        technologies: ["React", "Tailwind"],
+    },
+    {
+        title: "Angular Dashboard",
+        url: "http://portfolio.com/angular",
+        description: "An interactive admin dashboard using Angular.",
+        technologies: ["Angular", "Material"],
+    },
+    {
+        title: "Vue App",
+        url: "http://portfolio.com/vue",
+        description: "A single-page application built with Vue.js.",
+        technologies: ["Vue", "Bootstrap"],
+    },
+    {
+        title: "Svelte App",
+        url: "http://portfolio.com/svelte",
+        description: "An application built with Svelte.",
+        technologies: ["Svelte", "Bulma"],
+    },
 ];
 
-
 const initialMockBrowser = {
-	title: "Welcome to my portfolio!",
-	url: "http://portfolio.com",
-	description: "Click a section to see details here.",
+    title: "Welcome to my portfolio!",
+    url: "http://portfolio.com",
+    description: "Click a section to see details here.",
 };
 ---
 
 <main class="flex-grow flex flex-col items-center justify-center p-6 bg-gradient-to-r">
-	<!-- Text Section -->
-	<div class="text-center mb-8">
-		<h1 class="font-heading text-3xl sm:text-4xl md:text-5xl leading-tight mb-4">
-			Explore My Software Engineering Portfolio
-		</h1>
-		<p class="font-body text-lg sm:text-xl opacity-80">
-			Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions that shape the future of technology.
-		</p>
-	</div>
+    <!-- Text Section -->
+    <div class="text-center mb-8">
+        <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl leading-tight mb-4">
+            Explore My Software Engineering Portfolio
+        </h1>
+        <p class="font-body text-lg sm:text-xl opacity-80">
+            Dive into a curated showcase of my cutting-edge projects, technical expertise, and impactful contributions
+            that shape the future of technology.
+        </p>
+    </div>
 
-	<!-- Project Content -->
-	<div class="container mx-auto grid gap-12 lg:grid-cols-2 items-start">
-		<!-- Project Grid Section -->
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-			{projects.map((project, index) => (
-				<div
-					key={index}
-					class="card relative bg-gradient-to-r from-gray-800 via-gray-900 to-black p-6 rounded-lg shadow-lg border border-gray-700 hover:scale-105 transition-transform cursor-pointer group"
-					data-title={project.title}
-					data-url={project.url}
-					data-description={project.description}
-				>
-					<!-- Title and Icons -->
-					<div class="space-y-4">
-						<h2 class="font-heading text-2xl text-gray-100">{project.title}</h2>
-						<div class="flex flex-wrap gap-2">
-							{project.technologies.map((icon) => (
-								<div class="badge badge-secondary text-sm">{project.technologies}</div>
-							))}
-						</div>
-						<p class="font-body text-gray-400">{project.description}</p>
-					</div>
-				</div>
-			))}
-		</div>
+    <!-- Grid Layout for Project Cards and Mock Browser -->
+    <div class="container mx-auto grid gap-12 md:grid-cols-2">
+        <!-- Project Grid Section -->
+        <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+            {projects.map((project) => (
+              <ProjectCard
+                title={project.title}
+                url={project.url}
+                description={project.description}
+                technologies={project.technologies}
+              />
+            ))}
+        </div>
 
-		<!-- Mock Browser -->
-		<div class="flex justify-center">
-			<div class="
-				mockup-browser border shadow-xl w-full
-			 	max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl
-			 	h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
-				<!-- Toolbar -->
-				<div class="mockup-browser-toolbar">
-					<div id="mock-url" class="input">{initialMockBrowser.url}</div>
-				</div>
-				<!-- Content -->
-				<div id="mock-content" class="flex justify-center px-4 py-16 p-6 h-full bg-gray-800">
-					<article class="prose lg:prose-xl">
-						<h3 class="font-body">{initialMockBrowser.title}</h3>
-						<p class="font-body">{initialMockBrowser.description}</p>
-					</article>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Mock Browser Section -->
+        <div class="flex justify-center">
+            <div class="
+        mockup-browser border shadow-xl w-full
+        max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl
+        h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
+                <!-- Toolbar -->
+                <div class="mockup-browser-toolbar">
+                    <div id="mock-url" class="input">{initialMockBrowser.url}</div>
+                </div>
+                <!-- Content -->
+                <div id="mock-content" class="flex justify-center px-4 py-16 p-6 h-full bg-gray-800">
+                    <article class="prose lg:prose-xl">
+                        <h3 class="font-body">{initialMockBrowser.title}</h3>
+                        <p class="font-body">{initialMockBrowser.description}</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <script>
-	document.addEventListener("DOMContentLoaded", () => {
-		const projectCards = document.querySelectorAll(".card");
+  document.addEventListener("DOMContentLoaded", () => {
+    const projectCards = document.querySelectorAll(".card");
 
-		projectCards.forEach((card) => {
-			card.addEventListener("click", () => {
-				// Get project data from the card's attributes
-				const title = card.getAttribute("data-title");
-				const url = card.getAttribute("data-url");
-				const description = card.getAttribute("data-description");
+    projectCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        // Get project data from the card's attributes
+        const title = card.getAttribute("data-title");
+        const url = card.getAttribute("data-url");
+        const description = card.getAttribute("data-description");
 
-				// Select mock browser elements
-				const mockUrl = document.getElementById("mock-url");
-				const mockContent = document.getElementById("mock-content");
+        // Select mock browser elements
+        const mockUrl = document.getElementById("mock-url");
+        const mockContent = document.getElementById("mock-content");
 
-				if (mockUrl && mockContent) {
-					// Update mock browser URL
-					mockUrl.textContent = url;
+        if (mockUrl && mockContent) {
+          // Update mock browser URL
+          mockUrl.textContent = url;
 
-					// Update mock browser content dynamically
-					mockContent.innerHTML = `
+          // Update mock browser content dynamically
+          mockContent.innerHTML = `
 						<article class="prose lg:prose-xl">
 						  <h3 class="font-body">${title}</h3>
 						  <p class="font-body">${description}</p>
 						</article>
 					`;
-				}
-			});
-		});
-	});
+        }
+      });
+    });
+  });
 </script>

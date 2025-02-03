@@ -592,25 +592,6 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.24.0.tgz#168ab1c7e1c318b922637fad8f339d48b01e1244"
   integrity sha512-7IAFPrjSQIJrGsK6flwg7NFmwBoSTyF3rl7If0hNUFQU4ilTsEPL6GuMuU9BfIWVVGuRnuIidkSMC+c0Otu8IA==
 
-"@iconify-icons/lucide@^1.2.135":
-  version "1.2.135"
-  resolved "https://registry.yarnpkg.com/@iconify-icons/lucide/-/lucide-1.2.135.tgz#bbcbe6983dfa1f59140560d7614483802b913441"
-  integrity sha512-t2Dya1a+PInBmHScbbGyseze7rrGHRW/dYF4GTR6f51N08sCg6KrtE4zmplnZE1ul2NyC+sxKpXRCv48hEgaQw==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/lucide@^1.2.25":
-  version "1.2.25"
-  resolved "https://registry.yarnpkg.com/@iconify-json/lucide/-/lucide-1.2.25.tgz#8171e7bf4f6d695b3121c1964134b012eef1320b"
-  integrity sha512-OsHihLfqdjxwoLWDEnGesrYbCG6VCCoLvmb1U6UJhggsppW+D3DUY/LhhcppZM4Yw3AM4USDIn/gkzqjdRYgEw==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify/types@*":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
-  integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
-
 "@img/sharp-darwin-arm64@0.33.5":
   version "0.33.5"
   resolved "https://registry.yarnpkg.com/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.33.5.tgz#ef5b5a07862805f1e8145a377c8ba6e98813ca08"
@@ -2290,6 +2271,16 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lucide-static@^0.473.0:
+  version "0.473.0"
+  resolved "https://registry.yarnpkg.com/lucide-static/-/lucide-static-0.473.0.tgz#eb48f24bcc4e2925690b7bdc23ea7fd4c077fcfb"
+  integrity sha512-fHDRD9De8oyAVXkcmHTtC4ENT6jGxcyey7y/wBLkKlLvU/+zhR2VnAcwA2Hvsa9TJIEizc06jdC7PWoboc6Mkg==
+
+lucide@^0.474.0:
+  version "0.474.0"
+  resolved "https://registry.yarnpkg.com/lucide/-/lucide-0.474.0.tgz#676b639eea3405f536d394673b75fef7debb4492"
+  integrity sha512-2rfORNh9fzhCUKu0ciE48ogR1Zg7hleABLO5MBF06vOb4esTtE8FbfQJiC+wveiNFoeojWKz6zXheUToRR5uIg==
 
 magic-string@^0.30.14:
   version "0.30.17"

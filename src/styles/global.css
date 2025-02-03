@@ -22,14 +22,29 @@
   justify-content: space-between;
   padding: 1.5rem;
   border-radius: 0.5rem; /* Smooth rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Softer shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Project card hover effects */
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3); /* More refined shadow */
+  box-shadow: 0 10px 25px rgba(0, 172, 193, 0.5); /* Blue-tinted hover shadow */
 }
+
+/* Badge styles */
+.badge {
+  background-color: #80deea; /* Slightly darker blue for badges */
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: #004d40;
+}
+
+.badge:hover {
+  background-color: #4dd0e1;
+}
+
 
 /* Hover overlay styling for the "View Project" button */
 .card .overlay {

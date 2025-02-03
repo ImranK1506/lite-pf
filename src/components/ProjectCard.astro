@@ -1,0 +1,31 @@
+---
+interface Props {
+    title: string;
+    url: string;
+    description: string;
+    technologies: string[];
+}
+
+const { title, url, description, technologies } = Astro.props;
+---
+<div class="card group" data-title={title} data-url={url} data-description={description}>
+    <div class="space-y-4">
+        <h2 class="font-heading text-2xl text-base-content">{title}</h2>
+
+        <div class="flex-wrap">
+            {technologies.map((tech) => (
+              <span class="badge">{tech}</span>
+            ))}
+        </div>
+
+        <p class="font-body text-base-content">{description}</p>
+    </div>
+</div>
+
+<style>
+    .flex-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+</style>
