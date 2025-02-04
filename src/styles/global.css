@@ -16,14 +16,7 @@
 
 /* Project card design */
 .card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.5rem;
-  border-radius: 0.5rem; /* Smooth rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Softer shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @apply bg-base-200 border border-base-300 shadow-md rounded-lg p-6 transition-transform transform hover:scale-105 hover:shadow-lg;
 }
 
 /* Project card hover effects */
