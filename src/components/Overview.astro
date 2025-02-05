@@ -1,5 +1,6 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
+import MockBrowser from "./MockBrowser.astro";
 
 const projects = [
     {
@@ -63,54 +64,43 @@ const initialMockBrowser = {
 
         <!-- Mock Browser Section -->
         <div class="flex justify-center">
-            <div class="
-        mockup-browser border shadow-xl w-full
-        max-w-xs sm:max-w-md md:max-w-lg lg:max-w-5xl
-        h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
-                <!-- Toolbar -->
-                <div class="mockup-browser-toolbar">
-                    <div id="mock-url" class="input">{initialMockBrowser.url}</div>
-                </div>
-                <!-- Content -->
-                <div id="mock-content" class="flex justify-center px-4 py-16 p-6 h-full bg-gray-800">
-                    <article class="prose lg:prose-xl">
-                        <h3 class="font-body">{initialMockBrowser.title}</h3>
-                        <p class="font-body">{initialMockBrowser.description}</p>
-                    </article>
-                </div>
-            </div>
+            <MockBrowser
+              url={initialMockBrowser.url}
+              title={initialMockBrowser.title}
+              description={initialMockBrowser.description}
+            />
         </div>
     </div>
 </main>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const projectCards = document.querySelectorAll(".card");
+    document.addEventListener("DOMContentLoaded", () => {
+        const projectCards = document.querySelectorAll(".card");
 
-    projectCards.forEach((card) => {
-      card.addEventListener("click", () => {
-        // Get project data from the card's attributes
-        const title = card.getAttribute("data-title");
-        const url = card.getAttribute("data-url");
-        const description = card.getAttribute("data-description");
+        projectCards.forEach((card) => {
+            card.addEventListener("click", () => {
+                // Get project data from the card's attributes
+                const title = card.getAttribute("data-title");
+                const url = card.getAttribute("data-url");
+                const description = card.getAttribute("data-description");
 
-        // Select mock browser elements
-        const mockUrl = document.getElementById("mock-url");
-        const mockContent = document.getElementById("mock-content");
+                // Select mock browser elements
+                const mockUrl = document.getElementById("mock-url");
+                const mockContent = document.getElementById("mock-content");
 
-        if (mockUrl && mockContent) {
-          // Update mock browser URL
-          mockUrl.textContent = url;
+                if (mockUrl && mockContent) {
+                    // Update mock browser URL
+                    mockUrl.textContent = url;
 
-          // Update mock browser content dynamically
-          mockContent.innerHTML = `
-						<article class="prose lg:prose-xl">
-						  <h3 class="font-body">${title}</h3>
-						  <p class="font-body">${description}</p>
-						</article>
-					`;
-        }
-      });
+                    // Update mock browser content dynamically
+                    mockContent.innerHTML = `
+            <article class="prose lg:prose-xl">
+              <h3 class="font-body">${title}</h3>
+              <p class="font-body">${description}</p>
+            </article>
+          `;
+                }
+            });
+        });
     });
-  });
 </script>
