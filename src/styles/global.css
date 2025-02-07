@@ -38,7 +38,6 @@
   background-color: #4dd0e1;
 }
 
-
 /* Hover overlay styling for the "View Project" button */
 .card .overlay {
   @apply absolute inset-0 flex items-center justify-center bg-black/70 opacity-0 transition-opacity rounded-lg;
