@@ -4,18 +4,24 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 <footer class="shadow-lg px-6 py-4 dark:bg-black bg-opacity-50 dark:text-white">
     <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center sm:text-left">
+
         <!-- Contact Section -->
         <div>
             <h2 class="font-bold text-xl mb-2">Contact</h2>
-            <p>Email: <a href="mailto:imran.khan@softwareengineer.com" class="hover:text-primary underline">imran.khan@softwareengineer.com</a></p>
+            <p>Email:
+                <a href="mailto:imran.khan@softwareengineer.com" class="hover:text-primary underline">
+                    imran.khan@softwareengineer.com
+                </a>
+            </p>
         </div>
 
         <!-- Social Links Section -->
         <div>
             <h2 class="font-bold text-xl mb-2">Connect</h2>
             <p>
-                <a href="https://www.linkedin.com/in/imran-khan-se/" target="_blank" rel="noopener noreferrer" class="hover:text-primary flex items-center gap-2">
-                    <FaLinkedin class="w-5 h-5" /> LinkedIn
+                <a href="https://www.linkedin.com/in/imran-khan-se/" target="_blank" rel="noopener noreferrer"
+                   class="hover:text-primary flex items-center gap-2 justify-center sm:justify-start">
+                    <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" /> LinkedIn
                 </a>
             </p>
         </div>
@@ -24,14 +30,17 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
         <div>
             <h2 class="font-bold text-xl mb-2">Projects</h2>
             <p>
-                <a href="https://github.com/ImranK1506" target="_blank" rel="noopener noreferrer" class="hover:text-primary flex items-center gap-2">
-                    <FaGithub class="w-5 h-5" /> GitHub
+                <a href="https://github.com/ImranK1506" target="_blank" rel="noopener noreferrer"
+                   class="hover:text-primary flex items-center gap-2 justify-center sm:justify-start">
+                    <FaGithub className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" /> GitHub
                 </a>
             </p>
         </div>
     </div>
 
+    <!-- Bottom Section -->
     <div class="mt-6 border-t border-gray-700 pt-4 text-sm text-gray-400 text-center">
         © {new Date().getFullYear()} Imran Khan. All rights reserved.
     </div>
 </footer>
+
