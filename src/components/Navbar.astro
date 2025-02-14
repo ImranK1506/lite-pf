@@ -42,6 +42,30 @@ import logo from "../assets/logo.jpg";
             <FaJenkins className="hidden sm:block w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16" />
             <FaAws className="hidden sm:block w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16" />
         </div>
+        <!-- Dark Mode Toggle -->
+        <div class="flex items-center">
+            <button id="theme-toggle" class="btn btn-outline btn-primary ml-4">
+                🌙
+            </button>
+        </div>
     </div>
 </header>
 
+<script>
+    const currentTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", currentTheme);
+
+    // Update button icon
+    function updateButtonIcon(theme) {
+        document.getElementById("theme-toggle").innerText = theme === "light" ? "🌙" : "☀️";
+    }
+    updateButtonIcon(currentTheme);
+
+    // Toggle function
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "night" : "light";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateButtonIcon(newTheme);
+    });
+</script>
