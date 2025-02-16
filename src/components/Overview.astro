@@ -74,6 +74,10 @@ const initialMockBrowser = {
 </main>
 
 <script>
+    // Auto-detect dark mode based on user's system preferences
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", prefersDarkMode ? "night" : "light");
+
     document.addEventListener("DOMContentLoaded", () => {
         const projectCards = document.querySelectorAll(".card");
 
