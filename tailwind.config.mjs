@@ -13,8 +13,8 @@ export default {
 		require('@tailwindcss/typography'),
 		require('daisyui')
 	],
-	// daisyui: {
-	// 	themes: ['winter', 'night']
-	// },
-	// darkMode: 'media',
+	daisyui: {
+		themes: ['winter', 'night']
+	},
+	darkMode: 'media',
 }
