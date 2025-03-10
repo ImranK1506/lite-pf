@@ -1,6 +1,6 @@
 ---
 interface Props {
-  utl: string;
+  url: string;
   title: string;
   description: string;
 }
@@ -17,7 +17,7 @@ const { url, title, description } = Astro.props;
         <div id="mock-url" class="input">{url}</div>
     </div>
     <!-- Content -->
-    <div id="mock-content" class="flex justify-center px-4 py-16 p-6 h-full bg-gray-800">
+    <div id="mock-content" class="flex justify-center px-4 py-16 p-6 h-full">
         <article class="prose lg:prose-xl">
             <h3 class="font-body">{title}</h3>
             <p class="font-body">{description}</p>
